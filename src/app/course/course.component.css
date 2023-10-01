@@ -12,22 +12,6 @@
     display: flex;
     align-items: center;
 }
-.nav{
-    display: flex;
-    justify-content: space-between;
-    background-color: #294122;
-    padding: 7px;
-}
-
-a{
-    text-decoration: none;
-    font-size: 28px;
-    color: #ffedd2;
-}
-
-a :hover{
-    color: #FFBBA6;
-}
 
 .content{
     padding-left: 10%;

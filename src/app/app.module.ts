@@ -4,20 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CourseModule } from './course/course.module';
 import { RouterModule } from '@angular/router';
+import { ListSummaryComponent } from './list-summary/list-summary.component';
 import { ListDetailComponent } from './list-detail/list-detail.component';
 import { CourseComponent } from './course/course.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { DetailComponent } from './detail/detail.component';
 import { RestDataSource } from './model/rest.datasource';
-import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddCourseComponent,
-
+    ListSummaryComponent,
     DetailComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
