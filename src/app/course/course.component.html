@@ -1,0 +1,155 @@
+<header>
+  <div class="nav">
+    <a href="" class="logo" herf="#" routerLink="/">Angular Project App</a>
+    <app-list-summary></app-list-summary>
+  </div>
+</header>
+
+<div class="content">
+  <!-- Subject selector -->
+  <div class="row text-white">
+    <div class="subject">
+      <button
+        class="btn btn-outline-dark"
+        style="width: 14%; padding: 7px"
+        (click)="changeSubject()"
+      >
+        All
+      </button>
+      <button
+        *ngFor="let sub of subject"
+        class="btn btn-outline-dark"
+        style="width: 14%; padding: 7px"
+        [class.active]="sub == selectSubject"
+        (click)="changeSubject(sub)"
+      >
+        {{ sub }}
+      </button>
+    </div>
+  </div>
+
+  <!--  Select View -->
+  <div class="form-inline float-start mr-1" style="width: fit-content">
+    <div
+      role="group"
+      aria-label="Basic radio toggle button group"
+      class="btn-group btn-group-sm"
+    >
+      <input
+        type="radio"
+        name="btnradio"
+        id="btnradio1"
+        autocomplete="off"
+        checked=""
+        class="btn-check"
+        (click)="onClickList()"
+      /><label for="btnradio1" class="btn btn-outline-dark">☐</label
+      ><input
+        type="radio"
+        name="btnradio"
+        id="btnradio2"
+        autocomplete="off"
+        class="btn-check"
+        (click)="onClickOrder()"
+      /><label for="btnradio2" class="btn btn-outline-dark">↓</label>
+    </div>
+  </div>
+
+  <!-- Add course Button -->
+  <div class="btn btn-success float-end" routerLink="/add-course">
+    add course
+  </div>
+
+  <br /><br />
+
+  <!-- Course list (Catalog view) -->
+  <ng-template [ngIf]="catView" [ngIfElse]="orderView">
+    <div class="main-catalog">
+      <div *ngFor="let cou of courses" class="couse-catalog">
+        <img class="listing-photo" [src]="cou.photo" alt="Course Photo" />
+        <div class="detail">
+          <h4>{{ cou.name }}</h4>
+          <div class="card-text"><b>Teacher : </b> {{ cou.teacher }}</div>
+          <div class="card-text"><b>Hours : </b> {{ cou.hours }} hour</div>
+          <button
+            class="btn btn-outline-danger rounded-pill p-lg-1 mt-2"
+            style="width: 100%"
+            routerLink="/courses/{{ cou.id }}"
+          >
+            detail
+          </button>
+          <br />
+          <button
+            class="btn btn-danger rounded-pill p-lg-1 my-2"
+            style="width: 100%"
+            (click)="addCouseToList(cou)"
+          >
+            add to list
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Course list (Order view) -->
+  <ng-template #orderView>
+    <div class="main-order">
+      <div *ngFor="let cou of courses" class="couse-order">
+        <table>
+          <tr>
+            <td>
+              <img class="listing-photo" [src]="cou.photo" alt="Course Photo" />
+            </td>
+            <td>
+              <h4>{{ cou.name }}</h4>
+            </td>
+            <td>Teacher : {{ cou.teacher }}</td>
+            <td>Hours : {{ cou.hours }} hour</td>
+            <td>
+              <button
+                class="btn btn-outline-danger rounded-pill p-lg-1"
+                style="width: 100px"
+                routerLink="/courses/{{ cou.id }}"
+              >
+                detail
+              </button>
+              <br /><br />
+              <button
+                class="btn btn-danger rounded-pill p-lg-1"
+                style="width: 100px"
+                (click)="addCouseToList(cou)"
+              >
+                add to list
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Custom courses per page -->
+  <div class="form-inline float-start mr-1">
+    <select
+      class="form-control"
+      [value]="coursesPerPage"
+      (change)="changePageSize($any($event).target.value)"
+    >
+      <option value="4">4 per Page</option>
+      <option value="8">8 per Page</option>
+      <option value="12">12 per Page</option>
+      <option value="16">16 per Page</option>
+    </select>
+  </div>
+  <!-- Select Page -->
+  <div class="btn-group float-end">
+    <button
+      *ngFor="let page of pageNumbers"
+      (click)="changePage(page)"
+      class="btn btn-outline-success"
+      [class.active]="page == selectedPage"
+    >
+      {{ page }}
+    </button>
+  </div>
+</div>

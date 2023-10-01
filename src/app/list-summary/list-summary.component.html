@@ -1,0 +1,22 @@
+<div
+  class="float-end"
+  style="padding-top: 5px; display: flex; align-items: center"
+>
+  <small class="fs-6" style="color: azure; display: flex; align-items: center">
+    Your list:
+    <span *ngIf="list.itemCount > 0" style="display: flex; align-items: center">
+      <div class="num" style="margin-right: 5px">{{ list.itemCount }}</div>
+      lesson(s)
+    </span>
+
+    <span *ngIf="list.itemCount == 0"> (empty) </span>
+  </small>
+
+  <button
+    class="btn btn-sm bg-dark text-white"
+    [disabled]="list.itemCount == 0"
+    routerLink="/list"
+  >
+    <i class="fa fa-list-alt" aria-hidden="true"></i>
+  </button>
+</div>

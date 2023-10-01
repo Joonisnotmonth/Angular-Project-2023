@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <header>
+    <div class="nav">
+      <a href="" class="logo" herf="#" routerLink="/">Angular Project App</a>
+      <app-list-summary></app-list-summary>
+    </div>
+  </header>
+  <div class="content">
+    <div class="row">
+      <div class="col mt-2">
+        <h2 class="text-center">Your List</h2>
+        <div class="main-order">
+          <div class="couse-order" *ngFor="let line of list.lines">
+            <table>
+              <tr>
+                <td>
+                  <img
+                    class="listing-photo"
+                    [src]="line.course.photo"
+                    alt="Course Photo"
+                  />
+                </td>
+                <td>
+                  <h4>{{ line.course.name }}</h4>
+                </td>
+                <td>Teacher : {{ line.course.teacher }}</td>
+                <td>Hours : {{ line.course.hours }} hour</td>
+                <td>
+                  <button
+                    class="btn btn-danger rounded-pill p-lg-1"
+                    style="width: 80px"
+                    (click)="list.removeLine(line.course.id ?? 0)"
+                  >
+                    remove
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="text-center">
+          <button class="btn btn-danger m-1" routerLink="/store">
+            BACK TO COURSE PAGE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

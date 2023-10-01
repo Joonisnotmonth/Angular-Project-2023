@@ -1,0 +1,100 @@
+<header>
+  <div class="nav">
+    <a href="" class="logo" herf="#" routerLink="/">Angular Project App</a>
+  </div>
+</header>
+<h2 class="text-center">Add new course</h2>
+
+<form action="#" method="post">
+  <table>
+    <tr>
+      <td>
+        <!-- Course Name -->
+        <div>
+          <label for="courseName">Course Name:</label> <br />
+          <input
+            type="text"
+            id="courseName"
+            name="courseName"
+            required
+            style="width: 100%"
+          />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <!-- Subject -->
+        <div>
+          <label for="subject">Subject:</label> <br />
+          <select class="form-control" id="subject" name="subject" required>
+            <option value="English">English</option>
+            <option value="Foreign Language">Foreign Language</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Science">Science</option>
+            <option value="Social Studies">Social Studies</option>
+            <option value="Technology">Technology</option>
+          </select>
+        </div>
+      </td>
+      <td>
+        <!-- Teacher -->
+        <div>
+          <label for="teacher">Teacher:</label> <br />
+          <input type="text" id="teacher" name="teacher" required />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <!-- Photo -->
+        <div>
+          <label for="photo">Photo:</label> <br />
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            accept="image/*"
+            style="border: none"
+          />
+        </div>
+      </td>
+      <td>
+        <!-- Hours -->
+        <div>
+          <label for="hours">Hours:</label> <br />
+          <input type="number" id="hours" name="hours" required />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <!-- Description -->
+        <div>
+          <label for="description">Description:</label> <br />
+          <textarea rows="5" cols="40" name="description"></textarea>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!-- Submit Button -->
+  <div
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      transform: translateY(-55px);
+    "
+  >
+    <button type="submit" class="btn btn-success">Add Course</button>
+  </div>
+</form>
+<div class="row">
+  <div class="col">
+    <div class="text-center">
+      <button class="btn btn-danger m-4" routerLink="/store">
+        BACK TO COURSE PAGE
+      </button>
+    </div>
+  </div>
+</div>

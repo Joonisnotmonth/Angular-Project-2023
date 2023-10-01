@@ -1,0 +1,30 @@
+<header>
+  <div class="nav">
+    <a href="" class="logo" herf="#" routerLink="/">Angular Project App</a>
+  </div>
+</header>
+<div class="content" *ngIf="courseData">
+  <div class="course-pic">
+    <img class="listing-photo" [src]="courseData.photo" alt="Course Photo" />
+  </div>
+  <div class="detail">
+    <div class="course-name">{{ courseData.name }}</div>
+    <div class="teach"><b>Taught by</b> &nbsp; {{ courseData.teacher }}</div>
+    <div class="time">
+      <div>🕑 &nbsp;</div>
+      <div>{{ courseData.hours }} Hours</div>
+    </div>
+    <div class="discription">
+      <div><b>Discription</b></div>
+      <div>&nbsp;</div>
+      <div><b> : </b></div>
+      <div>&nbsp;</div>
+      <div>{{ courseData.description }}</div>
+    </div>
+    <div class="button">
+      <button class="btn btn-danger" style="width: 100%; border-radius: 30px">
+        add to list
+      </button>
+    </div>
+  </div>
+</div>
