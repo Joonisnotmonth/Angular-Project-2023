@@ -78,6 +78,7 @@ export class CourseComponent {
   }
 
   addCouseToList(course: Course) {
+    console.log(course);
     this.list.addLine(course);
   }
 }

@@ -8,7 +8,7 @@ import { ListDetailComponent } from '../list-detail/list-detail.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [CourseComponent],
+  declarations: [CourseComponent, ListDetailComponent],
   imports: [ModelModule, BrowserModule, FormsModule, RouterModule],
   exports: [CourseComponent],
 })

@@ -26,11 +26,12 @@
 
   .course-name {
     font-size: 48px;
+    padding-top: 30px;
   }
 
   .detail {
     width: 50%;
-    padding: 30px;
+    padding: 30px 70px 30px 30px;
   }
 
   .time {

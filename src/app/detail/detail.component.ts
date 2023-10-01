@@ -3,6 +3,7 @@ import { detail } from '../model/detail.model';
 import { ActivatedRoute } from '@angular/router';
 import { RestDataSource } from '../model/rest.datasource';
 import { Course } from '../model/course.model';
+import { List } from '../model/list.model';
 
 @Component({
   selector: 'app-detail',
@@ -14,7 +15,8 @@ export class DetailComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private course: RestDataSource
+    private course: RestDataSource,
+    private list: List
   ) {}
 
   ngOnInit(): void {
@@ -26,5 +28,9 @@ export class DetailComponent {
         console.log(typeof result);
         this.courseData = result;
       });
+  }
+
+  addCouseToList(course: Course) {
+    this.list.addLine(course);
   }
 }
