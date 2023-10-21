@@ -167,7 +167,7 @@ export class StaticDataSource {
     // ),
   ];
 
-  getAllCourses(): Observable<Course[]> {
-    return from([this.courses]);
-  }
+  // getAllCourses(): Observable<Course[]> {
+  //   return from([this.courses]);
+  // }
 }

@@ -8,7 +8,8 @@ export class CourseRepository {
   public courses: Course[] = [];
   public subject: string[] = [];
 
-  constructor(private dataSource: StaticDataSource) {
+  constructor(private dataSource: RestDataSource) {
+    //console.log(typeof dataSource);
     this.dataSource.getAllCourses().subscribe((data) => {
       this.courses = data;
       this.subject = data

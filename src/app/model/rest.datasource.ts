@@ -8,7 +8,7 @@ export class RestDataSource {
   baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = ` http://localhost:3000/`;
+    this.baseUrl = ` http://localhost:8080/`;
   }
 
   getAllCourses(): Observable<Course[]> {
@@ -17,9 +17,5 @@ export class RestDataSource {
 
   getCourseByID(id: string): Observable<Course> {
     return this.http.get<Course>(this.baseUrl + 'courses/' + id);
-  }
-
-  createCourse(coursedata: any) {
-    return this.http.post(this.baseUrl, coursedata);
   }
 }
