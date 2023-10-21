@@ -11,6 +11,8 @@ import { AddCourseComponent } from './add-course/add-course.component';
 import { DetailComponent } from './detail/detail.component';
 import { RestDataSource } from './model/rest.datasource';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { RestDataSource } from './model/rest.datasource';
       { path: 'courses/:courseID', component: DetailComponent },
       { path: '**', redirectTo: '/courses' },
     ]),
+    ReactiveFormsModule,
   ],
   providers: [RestDataSource],
   bootstrap: [AppComponent],

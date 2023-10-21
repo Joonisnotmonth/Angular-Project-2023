@@ -1,16 +1,17 @@
 <h2 class="text-center">Add new course</h2>
 
-<form action="#" method="post">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <table>
     <tr>
       <td>
         <!-- Course Name -->
         <div>
-          <label for="courseName">Course Name:</label> <br />
+          <label for="name">Course Name:</label> <br />
           <input
             type="text"
-            id="courseName"
-            name="courseName"
+            id="name"
+            name="name"
+            formControlName="name"
             required
             style="width: 100%"
           />
@@ -22,12 +23,18 @@
         <!-- Subject -->
         <div>
           <label for="subject">Subject:</label> <br />
-          <select class="form-control" id="subject" name="subject" required>
+          <select
+            class="form-control"
+            id="subject"
+            name="subject"
+            formControlName="subject"
+            required
+          >
             <option value="English">English</option>
-            <option value="Foreign Language">Foreign Language</option>
+            <option value="Foreign">Foreign Language</option>
             <option value="Mathematics">Mathematics</option>
             <option value="Science">Science</option>
-            <option value="Social Studies">Social Studies</option>
+            <option value="Social">Social Studies</option>
             <option value="Technology">Technology</option>
           </select>
         </div>
@@ -36,29 +43,42 @@
         <!-- Teacher -->
         <div>
           <label for="teacher">Teacher:</label> <br />
-          <input type="text" id="teacher" name="teacher" required />
+          <input
+            type="text"
+            id="teacher"
+            name="teacher"
+            formControlName="teacher"
+            required
+          />
         </div>
       </td>
     </tr>
     <tr>
       <td>
-        <!-- Photo -->
+        <!-- Photo
         <div>
           <label for="photo">Photo:</label> <br />
           <input
             type="file"
             id="photo"
             name="photo"
+            formControlName="photo"
             accept="assets/images/*"
             style="border: none"
           />
-        </div>
+        </div> -->
       </td>
       <td>
         <!-- Hours -->
         <div>
           <label for="hours">Hours:</label> <br />
-          <input type="number" id="hours" name="hours" required />
+          <input
+            type="number"
+            id="hours"
+            name="hours"
+            formControlName="hours"
+            required
+          />
         </div>
       </td>
     </tr>
@@ -67,7 +87,12 @@
         <!-- Description -->
         <div>
           <label for="description">Description:</label> <br />
-          <textarea rows="5" cols="40" name="description"></textarea>
+          <textarea
+            rows="5"
+            cols="40"
+            name="description"
+            formControlName="description"
+          ></textarea>
         </div>
       </td>
     </tr>
@@ -87,7 +112,7 @@
 <div class="row">
   <div class="col">
     <div class="text-center">
-      <button class="btn btn-danger m-4" routerLink="/">
+      <button class="btn btn-danger m-4" type="submit" routerLink="/">
         BACK TO COURSE PAGE
       </button>
     </div>

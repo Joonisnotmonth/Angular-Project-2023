@@ -18,4 +18,8 @@ export class RestDataSource {
   getCourseByID(id: string): Observable<Course> {
     return this.http.get<Course>(this.baseUrl + 'courses/' + id);
   }
+
+  addCourse(courseData: any): Observable<any> {
+    return this.http.post(this.baseUrl + 'courses/', courseData);
+  }
 }
