@@ -10,6 +10,7 @@ import { CourseComponent } from './course/course.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { DetailComponent } from './detail/detail.component';
 import { RestDataSource } from './model/rest.datasource';
+import { AdminComponent } from './admin/admin.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddCourseComponent,
     ListSummaryComponent,
     DetailComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       { path: 'list', component: ListDetailComponent },
       { path: 'add-course', component: AddCourseComponent },
       { path: 'courses/:courseID', component: DetailComponent },
+      { path: 'admin', component: AdminComponent },
       { path: '**', redirectTo: '/courses' },
     ]),
     ReactiveFormsModule,

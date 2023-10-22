@@ -1,16 +1,14 @@
 .nav{
-    display: flex;
-    justify-content: space-between;
     background-color: #294122;
     padding: 7px;
 }
 
-a{
+.logo{
     text-decoration: none;
     font-size: 28px;
     color: #ffedd2;
 }
 
-a :hover{
+.logo :hover{
     color: #FFBBA6;
 }

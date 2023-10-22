@@ -1,1 +1,24 @@
-
+<header>
+  <div class="nav">
+    <div class="container-lg">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="" class="logo" herf="#" routerLink="/"
+            >Angular Project App</a
+          >
+          &nbsp;
+          <button
+            class="btn btn-sm bg-dark text-white mb-2"
+            routerLink="/admin"
+          >
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="col-md-3 offset-6">
+          <app-list-summary></app-list-summary>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<router-outlet></router-outlet>

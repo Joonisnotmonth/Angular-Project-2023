@@ -22,4 +22,9 @@ export class RestDataSource {
   addCourse(courseData: any): Observable<any> {
     return this.http.post(this.baseUrl + 'courses/', courseData);
   }
+
+  deleteCourseById(id: number): Observable<void> {
+    const url = `${this.baseUrl}courses/${id}`;
+    return this.http.delete<void>(url);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { detail } from '../model/detail.model';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 import { RestDataSource } from '../model/rest.datasource';
 import { Course } from '../model/course.model';
 import { List } from '../model/list.model';
@@ -16,7 +17,9 @@ export class DetailComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private course: RestDataSource,
-    private list: List
+    private list: List,
+    private router: Router,
+    private restData: RestDataSource
   ) {}
 
   ngOnInit(): void {
@@ -32,5 +35,17 @@ export class DetailComponent {
 
   addCouseToList(course: Course) {
     this.list.addLine(course);
+  }
+
+  removeCourse(courseId: number) {
+    this.restData.deleteCourseById(courseId).subscribe(
+      () => {
+        console.log('Course removed successfully');
+        // Add any additional handling you need here, e.g., refresh the list or navigate to another page.
+      },
+      (error) => {
+        console.error('Error removing course:', error);
+      }
+    );
   }
 }
