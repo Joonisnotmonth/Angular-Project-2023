@@ -40,6 +40,8 @@
             <button
               class="btn btn-danger rounded-pill p-lg-1"
               style="width: 100px"
+              *ngIf="cou.id !== undefined"
+              (click)="removeCourse(cou.id)"
             >
               delete
             </button>

@@ -23,8 +23,6 @@ export class AdminComponent {
   ) {}
 
   get courses(): Course[] {
-    // return this.repository.getCourses();
-    // return this.repository.getCourses(this.selectSubject);
     let pageIndex = (this.selectedPage - 1) * this.coursesPerPage;
     return this.repository
       .getCourses(this.selectSubject)
@@ -64,11 +62,11 @@ export class AdminComponent {
     this.restData.deleteCourseById(courseId).subscribe(
       () => {
         console.log('Course removed successfully');
-        // Add any additional handling you need here, e.g., refresh the list or navigate to another page.
       },
       (error) => {
         console.error('Error removing course:', error);
       }
     );
+    this.router.navigateByUrl('/courses');
   }
 }
