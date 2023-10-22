@@ -1,1 +1,75 @@
-<p>admin works!</p>
+<div class="content">
+  <div class="row text-white">
+    <div class="subject">
+      <button
+        class="btn btn-outline-dark"
+        style="width: 14%; padding: 7px"
+        (click)="changeSubject()"
+      >
+        All
+      </button>
+      <button
+        *ngFor="let sub of subject"
+        class="btn btn-outline-dark"
+        style="width: 14%; padding: 7px"
+        [class.active]="sub == selectSubject"
+        (click)="changeSubject(sub)"
+      >
+        {{ sub }}
+      </button>
+    </div>
+  </div>
+  <!-- Add course Button -->
+  <div class="btn btn-success float-end" routerLink="/add-course">
+    add course
+  </div>
+  <br /><br />
+  <div class="main-order">
+    <div *ngFor="let cou of courses" class="couse-order">
+      <table>
+        <tr>
+          <td>
+            <img class="listing-photo" [src]="cou.photo" alt="Course Photo" />
+          </td>
+          <td>
+            <h4>{{ cou.name }}</h4>
+          </td>
+          <td>Teacher : {{ cou.teacher }}</td>
+          <td>Hours : {{ cou.hours }} hour</td>
+          <td>
+            <button
+              class="btn btn-danger rounded-pill p-lg-1"
+              style="width: 100px"
+            >
+              delete
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- Custom courses per page -->
+  <div class="form-inline float-start mb-3">
+    <select
+      class="form-control"
+      [value]="coursesPerPage"
+      (change)="changePageSize($any($event).target.value)"
+    >
+      <option value="4">4 per Page</option>
+      <option value="8">8 per Page</option>
+      <option value="12">12 per Page</option>
+      <option value="16">16 per Page</option>
+    </select>
+  </div>
+  <!-- Select Page -->
+  <div class="float-end btn-group mb-3">
+    <button
+      *ngFor="let page of pageNumbers"
+      (click)="changePage(page)"
+      class="btn btn-outline-success"
+      [class.active]="page == selectedPage"
+    >
+      {{ page }}
+    </button>
+  </div>
+</div>
